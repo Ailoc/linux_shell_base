@@ -1,2 +1,6 @@
-# linux_shell_base
-linux脚本学习
+# 基础入门练习（猜数字）
+
+```shell
+
+```
+
