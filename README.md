@@ -50,6 +50,20 @@ done
         2. cp file /root 复制文件
         3. cp -p file /root 同时复制文件的操作时间
   ### 移动和重命名
-        1. mv /filea /fileb 重命名
+        1. mv /filea /fileb 重命名。移动为不同路径，重命名为同一路径。
         2. mv /tmp/filea /fileb 移动并且重命名
-        3. cp file* /tmp 复制，通配符使用，还有？通配符 
+        3. cp file* /tmp 复制，通配符使用，还有？通配符
+- ## 文本查看
+        1. cat file 文本内容显示到终端
+        2. head -3 file 查看前3行
+        3. tail -3 file 查看末尾3行
+        4. tail -f file 内容变化时进行更新
+        5. wc -l file 查看文本有多少行
+        6. more file 查看文本
+- ## 打包压缩和解压缩
+        1. tar cf /tmp/etc/backup.tar /etc 将/etc目录打包为文件
+        2. tar czf /tmp/etc/backup.tar.gz /etc 打包的同时进行压缩
+        3. tar xf /tmp/etc/backup.tar -C /root 解包
+        4. tar zxf /tmp/etc/backup.tar.gz -C /root 解压同时解包
+- ## vim 操作
+        1. vim有四种模式：正常模式、插入模式、命令模式、可视模式。
