@@ -67,3 +67,17 @@ done
         4. tar zxf /tmp/etc/backup.tar.gz -C /root 解压同时解包
 - ## vim 操作
         1. vim有四种模式：正常模式、插入模式、命令模式、可视模式。
+        2. 刚进入为正常模式，点击`i/a`进入插入模式，`I`在行开头插入，`A`在末尾追加，`O`在当前行上方插入一行，`o`在下方插入一行
+        3. 正常模式下，`yy`复制整行，`n yy`复制连续n行，`y $`复制光标位置到当前行结尾，`p`进行粘贴
+        4. 正常模式下，`dd`剪切一整行，`d $`剪切光标到行末尾, `u`进行撤销，可以多次按`u`进行多次撤销，`ctrl+r`重做
+        5. 正常模式下，`x`删除一个字符，按`r+新字符`进行对旧字符的替换。`n shift+g`跳转到第n行，`gg`到第一行，`shift+g`到末尾行，`shift+6`到行开头，`shift+4`到行末尾
+        6. 命令模式下，`:set nu`显示行数，`:w /root/a.txt`保存到指定位置，`:q!`不保存退出，`:!ifconfig`临时执行一条命令，`/x`查找x,`n`或`shift+n`找下一个/上一个x
+        7. 命令模式下，`:s/old/new`替换当前行的字符，`:%s/old/new/g`整个进行替换，`:3,5s/old/new/g`指定区域行进行替换
+        8. vim `/etc/vim/vimrc`配置文件路径
+        9. v/shift+v/ctrl+v可视字符/行/块模式
+- ## 用户和权限管理
+        1. useradd ailoc新增用户，id ailoc查看用户，在/etc/passwd文件中可以看到，/etc/shadow保存用户密码相关文件，root用户uid为0
+        2. passwd ailoc为用户设置密码，userdel ailoc删除用户(-r 同时删除相关home目录)
+        3. usermod -d /home/al ailoc修改用户的home目录
+        4. groupadd g1添加用户组g1，usermod -g g1 ailoc修改用户的用户组，groupdel g1删除用户组
+        5. su - user1切换为user1,root授权某个命令给某个用户:visudo `user1 ALL=/sbin/shutdown -c`
