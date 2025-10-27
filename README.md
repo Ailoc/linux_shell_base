@@ -81,3 +81,15 @@ done
         3. usermod -d /home/al ailoc修改用户的home目录
         4. groupadd g1添加用户组g1，usermod -g g1 ailoc修改用户的用户组，groupdel g1删除用户组
         5. su - user1切换为user1,root授权某个命令给某个用户:visudo `user1 ALL=/sbin/shutdown -c`
+        6. 在etc/passwd下：
+  <img width="500" height="100" alt="image" src="https://github.com/user-attachments/assets/ff667319-e9c8-4a5e-a90d-499de4718ea1" />
+        7. 第一列为用户名，第二列为密码，第三列为uid（0为root用户），第四列为组id，第五列为注释，第六列为家目录，第七列为用户登录后的解释器（sbin/nologin为不允许登录）
+        8. 'etc/shadow'保存用户密码
+        9. etc/group,组相关信息，包含组名称、是否需要登录、组id、其他组设置
+- ## 文件与目录权限
+        1. 第一个字符：-表示文件，d表示目录，b块文件，c字符特殊文件，l符号链接，f命名管道，s套接字文件
+        2. rwx（4，2，1）表示可读可写可执行（当前用户，用户组，其他人），目录文件为x表示可进入
+        3. 修改文件的属主：chrown username file, 修改文件的属组：chown :group file
+        4. 修改文件的权限：chmod u/g/o/a +- rwx file, chmod 644 file
+  
+
