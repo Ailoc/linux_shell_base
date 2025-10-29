@@ -83,6 +83,7 @@ done
         5. su - user1切换为user1,root授权某个命令给某个用户:visudo `user1 ALL=/sbin/shutdown -c`
         6. 在etc/passwd下：
   <img width="500" height="100" alt="image" src="https://github.com/user-attachments/assets/ff667319-e9c8-4a5e-a90d-499de4718ea1" />
+  
         7. 第一列为用户名，第二列为密码，第三列为uid（0为root用户），第四列为组id，第五列为注释，第六列为家目录，第七列为用户登录后的解释器（sbin/nologin为不允许登录）
         8. 'etc/shadow'保存用户密码
         9. etc/group,组相关信息，包含组名称、是否需要登录、组id、其他组设置
@@ -92,4 +93,17 @@ done
         3. 修改文件的属主：chrown username file, 修改文件的属组：chown :group file
         4. 修改文件的权限：chmod u/g/o/a +- rwx file, chmod 644 file
   
+- ## 网络管理
+        1. net-tools(ifconfig,route,netstat)/iproute2(ip,ss)
+        2. ifconfig -> eth0(第一块网卡,ether:mac地址)，配置文件：/etc/default/grub -> biosdevname=0 net.ifnames=0(修改网卡名为eth0)
+        3. 查看网关：route -n
+  <img width="800" height="238" alt="image" src="https://github.com/user-attachments/assets/314bb2b4-1072-4594-a6d5-713132485d82" />
 
+        4. 设置网卡的IP地址：ifconfig eth0 新IP netmask 255.255.255.0
+        5. ifup/ifdown eth0 启动/关闭网卡
+        6. route add/del gw 新IP地址：添加/删除网关
+        7. 设置指定网关：route add -host 目标ip gw 网关IP
+        8. 为网段设置网关：route add -net ip netmask 255.255.255.0 gw 网关IP
+        9. ping/traceroute -w 1 www.baidu.com/mtr/nslookup www.baidu.com/telnet www.baidu.com 80查看端口是否畅通/tcpdump抓包/netstat -ntpl
+- ## 网络配置文件：ifcfg-eth0和/etc/hosts
+        1. 查看网络状态：service network status
